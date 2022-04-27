@@ -7,6 +7,10 @@ import { Auth, Hub } from 'aws-amplify';
 const Navbar = () => {
     const [signedUser, setSignedUser] = useState(false);
 
+    useEffect(() => {
+        authListener();
+    }, [])
+
     async function authListener() {
         Hub.listen('auth', (data) => {
             switch (data.payload.event) {
@@ -35,7 +39,14 @@ const Navbar = () => {
                         {title}
                     </a>
                 </Link>
-            ))
+            ))}
+            {signedUser && (
+                    <Link href='/my-posts'>
+                        <a className='rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900'>
+                            My Post
+                        </a>
+                    </Link>
+                )
             }
         </nav>
     )
