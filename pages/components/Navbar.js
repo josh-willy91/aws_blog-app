@@ -4,7 +4,7 @@ import '../../configureAmplify';
 import { useState, useEffect } from 'react';
 
 const Navbar = () => {
-    const [signedUser, setSignedUser] = useState[false];
+    const [signedUser, setSignedUser] = useState(false);
 
 
     return (
@@ -24,3 +24,5 @@ const Navbar = () => {
         </nav>
     )
 }
+
+export default Navbar;
