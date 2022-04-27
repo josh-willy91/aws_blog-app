@@ -24,11 +24,12 @@ function Profile() {
                 Profile
             </h1>
             <h1 className='font-medium text-gray-500 my-2'>
-                {user.username}
+                Username: {user.username}
             </h1>
             <p className='text-sm text-gray-500 mb-6'>
-                {user.attributes.email}
+                Email: {user.attributes.email}
             </p>
+            <AmplifySignOut/>
         </div>
     )
 }
