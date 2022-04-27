@@ -2,9 +2,25 @@ import Link from 'next/link';
 import React from 'react';
 import '../../configureAmplify';
 import { useState, useEffect } from 'react';
+import { Auth, Hub } from 'aws-amplify';
 
 const Navbar = () => {
     const [signedUser, setSignedUser] = useState(false);
+
+    async function authListener() {
+        Hub.listen('auth', (data) => {
+            switch (data.payload.event) {
+                case 'signIn':
+                    return setSignedUser(true)
+                case 'signOut':
+                    return setSignedUser(false)
+            }
+        })
+        try {
+            await Auth.currentAuthenticatedUser()
+            setSignedUser(true)
+        } catch(err) {}
+    }
 
 
     return (
