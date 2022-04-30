@@ -4,6 +4,8 @@ import { API } from 'aws-amplify';
 import { useRouter } from 'next/router';
 import { v4 as uuid } from 'uuid';
 import { createPost } from '../src/graphql/mutations';
+import SimpleMDE from 'react-simplemde-editor';
+import 'easymde/dist/easymde.min.css';
 
 const initialState = { title: '', content: ''};
 function CreatePost() {
@@ -32,7 +34,15 @@ function CreatePost() {
     }
     return (
         <div>
-            <h1>Create new post</h1>
+            <h1 className="text-3xl font-semibold tracking-wide
+            mt-6">Create new post</h1>
+            <input
+                onChange={onChange}
+                name='title'
+                placeholder="title"
+                value={post.title}
+                className='border-b pb-2 text-lg my-4 focus:outline-none w-full font-light text-gray-500 placeholder-gray-500 y-2'
+            ></input>
         </div>
     )
 }
