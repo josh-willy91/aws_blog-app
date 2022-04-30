@@ -28,7 +28,7 @@ const Navbar = () => {
 
 
     return (
-        <nav class='flex justify-center pt-3 pb-3 space-x-4 border-b bg-cyan-500 border-gray-300'>
+        <nav className='flex justify-center pt-3 pb-3 space-x-4 border-b bg-cyan-500 border-gray-300'>
             {[
                 ['Home', '/'],
                 ['Create Post', '/create-post'],
