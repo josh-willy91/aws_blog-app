@@ -6,7 +6,7 @@ import { v4 as uuid } from 'uuid';
 import { createPost } from '../src/graphql/mutations';
 import dynamic from "next/dynamic";
 const SimpleMDE = dynamic(() => import("react-simplemde-editor"), {
-  ssr: false,
+    ssr: false,
 });
 // import SimpleMDE from "react-simplemde-editor";
 import "easymde/dist/easymde.min.css";
@@ -14,14 +14,17 @@ import "easymde/dist/easymde.min.css";
 const initialState = { title: '', content: '' };
 function CreatePost() {
 
+    const router = useRouter();
     const [post, setPost] = useState(initialState);
     const { title, content } = post;
-    const router = useRouter();
+    const [image, setImage] = useState(null);
+    // const imageFileInput = useRef(null);
 
     function onChange(e) {
         setPost(() => ({
-            ...post, [e.target.name]: e.target.value
-        }))
+            ...post,
+            [e.target.name]: e.target.value,
+        }));
     }
 
     async function createNewPost() {
@@ -29,13 +32,22 @@ function CreatePost() {
         const id = uuid();
         post.id = id;
 
+        // if (image) {
+        //   const filename = `${image.name}_${uuid()}`;
+        //   post.coverImage = filename;
+        //   await Storage.put(filename, image);
+        // }
+
+        console.log(createPost, post)
         await API.graphql({
             query: createPost,
             variables: { input: post },
-            authMode: 'AMAZON_COGNITO_USER_POOLS'
-        })
-        // router.push(`/post/${id}`)
+            authMode: "AMAZON_COGNITO_USER_POOLS",
+        });
+        router.push(`/posts/${id}`);
     }
+
+
     return (
         <div>
             <h1 className="text-3xl font-semibold tracking-wide
@@ -57,7 +69,7 @@ function CreatePost() {
                 onClick={createNewPost}
             >
                 Create Post
-            </button>{" "}
+            </button>
         </div>
     )
 }
