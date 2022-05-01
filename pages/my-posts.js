@@ -4,7 +4,6 @@ import { postsByUsername } from '../src/graphql/queries';
 import Link from 'next/link';
 
 
-
 function MyPosts() {
     const [posts, setPosts] = useState([])
 
