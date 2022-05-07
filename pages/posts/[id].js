@@ -7,10 +7,12 @@ import { API } from "aws-amplify";
 
 export default function Post({ post }) {
     const router = useRouter();
+
     if(router.isFallback) {
         return <div>Loading...</div>
     }
 
+    if(!post) return <h3>No Posts</h3>
 
     return (
         <div>

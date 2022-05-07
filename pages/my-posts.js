@@ -2,6 +2,7 @@ import { API, Auth } from 'aws-amplify';
 import { useEffect, useState } from 'react';
 import { postsByUsername } from '../src/graphql/queries';
 import Link from 'next/link';
+import Post from './posts/[id]';
 
 
 function MyPosts() {
@@ -20,13 +21,10 @@ function MyPosts() {
         })
 
         console.log(postData.data.postsByUsername.items, 'posts =========posts==============')
-        if(postData.data.postsByUsername.items = []) {
-            console.log('if conditional ============')
-            setPosts(['No Posts Currently'])
-        } else {
-            setPosts(postData.data.postsByUsername.items)
-        }
+        setPosts(postData.data.postsByUsername.items)
     }
+
+    if(posts.length === 0) return <h3>You have no posts yet</h3>
 
     return (
         <div>
