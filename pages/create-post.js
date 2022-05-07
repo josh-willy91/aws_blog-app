@@ -12,7 +12,7 @@ const SimpleMDE = dynamic(() => import("react-simplemde-editor"), {
 import "easymde/dist/easymde.min.css";
 
 
-const initialState = { title: '', content: '',  username: '', coverImage: ''};
+const initialState = { title: '', content: '',  username: ''};
 
 function CreatePost() {
 
