@@ -1,6 +1,6 @@
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import { useState, useEffect } from "react";
-import { API } from 'aws-amplify';
+import { API, Auth, Hub } from 'aws-amplify';
 import { useRouter } from 'next/router';
 import { v4 as uuid } from 'uuid';
 import { createPost } from '../src/graphql/mutations';
@@ -11,7 +11,9 @@ const SimpleMDE = dynamic(() => import("react-simplemde-editor"), {
 // import SimpleMDE from "react-simplemde-editor";
 import "easymde/dist/easymde.min.css";
 
-const initialState = { title: '', content: '' };
+
+const initialState = { title: '', content: '',  username: '', coverImage: ''};
+
 function CreatePost() {
 
     const router = useRouter();
@@ -19,18 +21,22 @@ function CreatePost() {
     const { title, content } = post;
     const [image, setImage] = useState(null);
     // const imageFileInput = useRef(null);
-
+    
+    
     function onChange(e) {
         setPost(() => ({
             ...post,
             [e.target.name]: e.target.value,
         }));
     }
-
+    
     async function createNewPost() {
-        if (!title || !content) return;
+        const { username } = await Auth.currentAuthenticatedUser()
+
+        if (!title || !content || !username) return;
         const id = uuid();
         post.id = id;
+        post.username = username
 
         // if (image) {
         //   const filename = `${image.name}_${uuid()}`;
@@ -38,13 +44,18 @@ function CreatePost() {
         //   await Storage.put(filename, image);
         // }
 
-        console.log(createPost, post)
-        await API.graphql({
-            query: createPost,
-            variables: { input: post },
-            authMode: "AMAZON_COGNITO_USER_POOLS",
-        });
-        router.push(`/posts/${id}`);
+        console.log(createPost, '===create post===', post, '===post===')
+        try {
+
+            await API.graphql({
+                query: createPost,
+                variables: { input: post },
+                // authMode: "AMAZON_COGNITO_USER_POOLS",
+            });
+            router.push(`/posts/${id}`);
+        } catch(err) {
+            console.log(err, '=====error=====')
+        }
     }
 
 
