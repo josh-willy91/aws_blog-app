@@ -49,7 +49,7 @@ function CreatePost() {
             await API.graphql({
                 query: createPost,
                 variables: { input: post },
-                // authMode: "AMAZON_COGNITO_USER_POOLS",
+                authMode: "AMAZON_COGNITO_USER_POOLS",
             });
             router.push(`/posts/${id}`);
         } catch(err) {
