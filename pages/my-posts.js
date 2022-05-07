@@ -1,6 +1,7 @@
 import { API, Auth } from 'aws-amplify';
 import { useEffect, useState } from 'react';
 import { postsByUsername } from '../src/graphql/queries';
+import { deletePost as deletePostMutation } from '../src/graphql/mutations';
 import Link from 'next/link';
 import Post from './posts/[id]';
 
@@ -23,6 +24,19 @@ function MyPosts() {
         console.log(postData.data.postsByUsername.items, 'posts =========posts==============')
         setPosts(postData.data.postsByUsername.items)
     }
+
+    async function deletePost(id) {
+        await API.graphql({
+            query: deletePostMutation,
+            variables: { input: { id } },
+            authMode: "AMAZON_COGNITO_USER_POOLS",
+        });
+        // After deleting go get all the posts by username
+        fetchPosts()
+    }
+
+
+
 
     if (posts.length === 0) return <h3>You have no posts yet</h3>
 

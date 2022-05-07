@@ -10,11 +10,18 @@
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
               "apiKeyExpirationDays": 365,
-              "apiKeyExpirationDate": "2023-04-24T01:51:59.162Z",
+              "apiKeyExpirationDate": "2023-05-07T16:27:38.825Z",
               "description": "awsBlogAppAPI"
             }
           },
-          "additionalAuthenticationProviders": []
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authawsblogappfe6df4ef"
+              }
+            }
+          ]
         }
       }
     }

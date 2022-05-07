@@ -3,12 +3,19 @@
   "serviceConfiguration": {
     "apiName": "awsBlogApp",
     "serviceName": "AppSync",
-    "gqlSchemaPath": "/root/projects/full-stack/aws_blog-app/amplify/backend/api/awsBlogApp/schema.graphql",
+    "gqlSchemaPath": "/home/josh-willy/projects/aws_blog-app/amplify/backend/api/awsBlogApp/schema.graphql",
     "defaultAuthType": {
       "mode": "API_KEY",
       "expirationTime": 365,
-      "apiKeyExpirationDate": "2023-04-24T01:51:59.162Z",
+      "apiKeyExpirationDate": "2023-05-07T16:27:38.825Z",
       "keyDescription": "awsBlogAppAPI"
-    }
+    },
+    "conflictResolution": {},
+    "additionalAuthTypes": [
+      {
+        "mode": "AMAZON_COGNITO_USER_POOLS",
+        "cognitoUserPoolId": "authawsblogappfe6df4ef"
+      }
+    ]
   }
 }
