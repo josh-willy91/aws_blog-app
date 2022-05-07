@@ -46,7 +46,6 @@ function CreatePost() {
 
         console.log(createPost, '===create post===', post, '===post===')
         try {
-
             await API.graphql({
                 query: createPost,
                 variables: { input: post },
