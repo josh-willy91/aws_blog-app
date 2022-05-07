@@ -12,8 +12,6 @@ export default function Post({ post }) {
         return <div>Loading...</div>
     }
 
-    if(!post) return <h3>No Posts</h3>
-
     return (
         <div>
             <h1>{post.title}</h1>
