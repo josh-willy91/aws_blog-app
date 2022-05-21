@@ -2,28 +2,32 @@ import { useState, useEffect } from "react";
 import { API, graphqlOperation, Storage } from "aws-amplify";
 import { listPosts } from "./../src/graphql/queries";
 import Link from "next/link";
-import { newOnCreatePost } from "./../src/graphql/subscriptions";
+// import { newOnCreatePost } from "./../src/graphql/subscriptions";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
   const [post, setPost] = useState([]);
 
-  let subOncreate;
+  // This is the variable that setUpSubscriptions function will set
+  // let subOncreate;
 
-  function setUpSubscriptions() {
-    subOncreate = API.graphql(graphqlOperation(newOnCreatePost)).subscribe({
-      next: (postData) => {
-        console.log(postData.value);
-        setPost(postData);
-      },
-    });
-  }
-  useEffect(() => {
-    setUpSubscriptions();
-    return () => {
-      subOncreate.unsubscribe();
-    };
-  }, []);
+  // Subscriptions will allow a real time feel for the application. If user 1 creates a post while user 2 
+  // is viewing posts, user 1's post will show up on user 2's page without causing a refresh of page
+  // It is an expensive operation and is not needed so I comment it out
+  // function setUpSubscriptions() {
+  //   subOncreate = API.graphql(graphqlOperation(newOnCreatePost)).subscribe({
+  //     next: (postData) => {
+  //       console.log(postData.value);
+  //       setPost(postData);
+  //     },
+  //   });
+  // }
+  // useEffect(() => {
+  //   setUpSubscriptions();
+  //   return () => {
+  //     subOncreate.unsubscribe();
+  //   };
+  // }, []);
 
   useEffect(() => {
     fetchPosts();
