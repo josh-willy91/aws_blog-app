@@ -69,7 +69,7 @@ export default function Home() {
               <h2 className='text-xl font-semibold' key={index}>
                 {post.title}
               </h2>
-              <p className='text-gray-500 mt-2'>Author: {post.username}</p>
+              <p className='text-gray-700 mt-2'>Author: {post.username}</p>
               {post.comments.items.length > 0 &&
                 post.comments.items.map((comment, index) => (
                   <div
@@ -81,8 +81,8 @@ export default function Home() {
                     sm:items-center sm:space-y-0 sm:space-x-6 mb-2'
                   >
                     <div>
-                      <p className='text-gray-500 mt-2'>{comment.message}</p>
-                      <p className='text-gray-200 mt-1'>{comment.createdBy}</p>
+                      <p className='text-gray-700 mt-2'>{comment.message}</p>
+                      <p className='text-gray-400 mt-1'>Username: {comment.createdBy}</p>
                     </div>
                   </div>
                 ))}
