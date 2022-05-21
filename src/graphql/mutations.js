@@ -16,6 +16,18 @@ export const createPost = /* GraphQL */ `
         items {
           id
           message
+          post {
+            id
+            title
+            content
+            username
+            coverImage
+            comments {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           postID
           createdAt
           updatedAt
@@ -43,6 +55,18 @@ export const updatePost = /* GraphQL */ `
         items {
           id
           message
+          post {
+            id
+            title
+            content
+            username
+            coverImage
+            comments {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           postID
           createdAt
           updatedAt
@@ -70,6 +94,18 @@ export const deletePost = /* GraphQL */ `
         items {
           id
           message
+          post {
+            id
+            title
+            content
+            username
+            coverImage
+            comments {
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
           postID
           createdAt
           updatedAt
@@ -97,6 +133,23 @@ export const createComment = /* GraphQL */ `
         username
         coverImage
         comments {
+          items {
+            id
+            message
+            post {
+              id
+              title
+              content
+              username
+              coverImage
+              createdAt
+              updatedAt
+            }
+            postID
+            createdAt
+            updatedAt
+            createdBy
+          }
           nextToken
         }
         createdAt
@@ -124,6 +177,23 @@ export const updateComment = /* GraphQL */ `
         username
         coverImage
         comments {
+          items {
+            id
+            message
+            post {
+              id
+              title
+              content
+              username
+              coverImage
+              createdAt
+              updatedAt
+            }
+            postID
+            createdAt
+            updatedAt
+            createdBy
+          }
           nextToken
         }
         createdAt
@@ -151,6 +221,23 @@ export const deleteComment = /* GraphQL */ `
         username
         coverImage
         comments {
+          items {
+            id
+            message
+            post {
+              id
+              title
+              content
+              username
+              coverImage
+              createdAt
+              updatedAt
+            }
+            postID
+            createdAt
+            updatedAt
+            createdBy
+          }
           nextToken
         }
         createdAt

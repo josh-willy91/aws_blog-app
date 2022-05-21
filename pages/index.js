@@ -11,24 +11,24 @@ export default function Home() {
   let subOncreate;
 
   function setUpSubscriptions() {
-    // subOncreate = API.graphql(graphqlOperation(newOnCreatePost)).subscribe({
-    //   next: (postData) => {
-    //     console.log(postData.value);
-    //     setPost(postData);
-    //   },
-    // });
+    subOncreate = API.graphql(graphqlOperation(newOnCreatePost)).subscribe({
+      next: (postData) => {
+        console.log(postData.value);
+        setPost(postData);
+      },
+    });
   }
   useEffect(() => {
-    // setUpSubscriptions();
-    // return () => {
-    //   subOncreate.unsubscribe();
-    // };
+    setUpSubscriptions();
+    return () => {
+      subOncreate.unsubscribe();
+    };
   }, []);
 
   useEffect(() => {
     fetchPosts();
   }, [post]);
-
+  
   async function fetchPosts() {
     const postData = await API.graphql({
       query: listPosts,
@@ -41,9 +41,10 @@ export default function Home() {
         }
         return post;
       })
-    );
-
-    setPosts(postWithImages);
+      );
+      
+      setPosts(postWithImages);
+      console.log(postWithImages, '=====================')
   }
 
   return (
@@ -65,7 +66,7 @@ export default function Home() {
                 {post.title}
               </h2>
               <p className='text-gray-500 mt-2'>Author: {post.username}</p>
-              {/* {post.comments.items.length > 0 &&
+              {post.comments.items.length > 0 &&
                 post.comments.items.map((comment, index) => (
                   <div
                     key={index}
@@ -80,7 +81,7 @@ export default function Home() {
                       <p className='text-gray-200 mt-1'>{comment.createdBy}</p>
                     </div>
                   </div>
-                ))} */}
+                ))}
             </div>
           </div>
         </Link>
