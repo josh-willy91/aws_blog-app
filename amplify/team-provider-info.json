@@ -15,6 +15,12 @@
       "auth": {
         "awsblogappfe6df4ef": {},
         "true": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "dghljx86o6xd5",
+          "type": "manual"
+        }
       }
     }
   }
