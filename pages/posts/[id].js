@@ -127,28 +127,28 @@ export default function Post({ post }) {
   );
 }
 
-export async function getStaticPaths() {
-  const postData = await API.graphql({
-    query: listPosts
-  })
-  const paths = postData.data.listPosts.items.map(post => ({ params: { id: post.id }}))
-  return {
-    paths,
-    fallback: true
-  }
-}
+// export async function getStaticPaths() {
+//   const postData = await API.graphql({
+//     query: listPosts
+//   })
+//   const paths = postData.data.listPosts.items.map(post => ({ params: { id: post.id }}))
+//   return {
+//     paths,
+//     fallback: true
+//   }
+// }
 
-export async function getStaticProps({ params }) {
-  const { id } = params;
-  const postData = await API.graphql({
-    query: getPost,
-    variables: { id },
-  });
-  
-  return {
-    props: {
-      post: postData.data.getPost,
-    },
-    revalidate: 1,
-  };
-}
+// export async function getStaticProps({ params }) {
+//   const { id } = params;
+//   const postData = await API.graphql({
+//     query: getPost,
+//     variables: { id },
+//   });
+
+//   return {
+//     props: {
+//       post: postData.data.getPost,
+//     },
+//     revalidate: 1,
+//   };
+// }
