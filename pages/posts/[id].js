@@ -14,6 +14,7 @@ const SimpleMDE = dynamic(() => import("react-simplemde-editor"), {
 });
 // import SimpleMDE from "react-simplemde-editor";
 import "easymde/dist/easymde.min.css";
+
 const intialState = { message: "" };
 
 export default function Post({ post }) {
@@ -23,6 +24,7 @@ export default function Post({ post }) {
   const [showMe, setShowMe] = useState(false);
   const router = useRouter();
   const { message } = comment;
+
   useEffect(() => {
     updateCoverImage();
   }, []);
@@ -35,6 +37,7 @@ export default function Post({ post }) {
   if (router.isFallback) {
     return <div>Loading...</div>;
   }
+
   function toggle() {
     setShowMe(!showMe);
   }
@@ -141,6 +144,7 @@ export async function getStaticProps({ params }) {
     query: getPost,
     variables: { id },
   });
+  
   return {
     props: {
       post: postData.data.getPost,
