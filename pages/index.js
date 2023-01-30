@@ -32,7 +32,7 @@ export default function Home() {
   useEffect(() => {
     fetchPosts();
   }, [post]);
-  
+
   async function fetchPosts() {
     const postData = await API.graphql({
       query: listPosts,
@@ -45,10 +45,10 @@ export default function Home() {
         }
         return post;
       })
-      );
-      
-      setPosts(postWithImages);
-      console.log(postWithImages, '=====setPosts=====')
+    );
+
+    setPosts(postWithImages);
+    console.log(postWithImages, '=====setPosts=====')
   }
 
   return (

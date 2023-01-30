@@ -14,6 +14,7 @@ function Profile() {
     async function checkUser() {
         const user = await Auth.currentAuthenticatedUser()
         setUser(user)
+        console.log('=====checkUser=====', user)
     }
 
 
@@ -34,5 +35,4 @@ function Profile() {
         </div>
     )
 }
-
 export default withAuthenticator(Profile);
