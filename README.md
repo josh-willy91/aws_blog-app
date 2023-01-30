@@ -8,13 +8,13 @@ https://www.udemy.com/course/aws-appsync-amplify-with-react-graphql-course/learn
 Development: AWS AMplify 05/2022
 Hosted: AWS@ https://dev.dghljx86o6xd5.amplifyapp.com
 Resources: 
-    AWS AppSync API: awsBlogApp-dev
-    AWS DynamoDB: Comment-hacwkx2k4bg2fnyl77vfirbohi-dev
-    AWS DynamoDB: Post-hacwkx2k4bg2fnyl77vfirbohi-dev
-    AWS S3 Image Storage: awsblogapp2f13035e89924a099bc2a61efcd5c3a7213747-dev
-    AWS S3: amplify-awsblogapp-dev-213747-deployment
-    AWS Cognito Auth: awsblogappfe6df4ef_userpool_fe6df4ef-dev
-    Queries via GraphQL
+- AWS AppSync API: awsBlogApp-dev
+- AWS DynamoDB: Comment-hacwkx2k4bg2fnyl77vfirbohi-dev
+- AWS DynamoDB: Post-hacwkx2k4bg2fnyl77vfirbohi-dev
+- AWS S3 Image Storage: awsblogapp2f13035e89924a099bc2a61efcd5c3a7213747-dev
+- AWS S3: amplify-awsblogapp-dev-213747-deployment
+- AWS Cognito Auth: awsblogappfe6df4ef_userpool_fe6df4ef-dev
+- Queries via GraphQL
 
 
 run "git clone https://github.com/josh-willy91/aws_blog-app.git"
