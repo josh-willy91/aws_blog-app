@@ -23,7 +23,7 @@ run "npm install"
 run "npm run dev" to start app locally
 
 Use Amplify Cli commands to update app resources.  See Amplify docs for commands
-Amplify update ...
+Amplify update...
 
 Deployment:
 Amplify Push will update AWS Amplify with all changes made to app
