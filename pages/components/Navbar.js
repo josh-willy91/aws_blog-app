@@ -50,10 +50,7 @@ const Navbar = () => {
       {signedUser && (
         <Link href='/my-posts'>
           <a
-            className='rounded-lg px-3 py-2 
-                     text-slate-700
-                     font-medium hover:bg-slage-100
-                     hover:text-slate-900'
+            className='rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slage-100 hover:text-slate-900'
           >
             My Post
           </a>
