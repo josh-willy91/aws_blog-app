@@ -56,8 +56,7 @@ function CreatePost() {
   return (
     <div>
       <h1
-        className='text-3xl font-semibold tracking-wide
-      mt-6'
+        className='text-3xl font-semibold tracking-wide mt-6'
       >
         Create new Post
       </h1>
@@ -66,8 +65,7 @@ function CreatePost() {
         name='title'
         placeholder='Title'
         value={post.title}
-        className='border-b pb-2 text-lg my-4
-         focus:outline-none w-full font-light text-gray-500 placeholder-gray-500 y-2'
+        className='border-b pb-2 text-lg my-4 focus:outline-none w-full font-light text-gray-500 placeholder-gray-500 y-2'
       />
       {image && <img src={URL.createObjectURL(image)} className='my-4' />}
       <SimpleMDE
@@ -75,23 +73,21 @@ function CreatePost() {
         onChange={(value) => setPost({ ...post, content: value })}
       />
       <input
+        className='absolute w-0 h-0'
         type='file'
         ref={imageFileInput}
-        className='absolute w-0 h-0'
         onChange={handleChange}
       />
       <button
         type='button'
-        className='bg-green-600 text-white 
-        font-semibold px-8 py-2 rounded-lg mr-2'
+        className='bg-green-600 text-white font-semibold px-8 py-2 rounded-lg mr-2'
         onClick={uploadImage}
       >
         Upload Cover Image
       </button>
       <button
         type='button'
-        className='mb-4 bg-blue-600 text-white 
-     font-semibold px-8 py-2 rounded-lg'
+        className='mb-4 bg-blue-600 text-white font-semibold px-8 py-2 rounded-lg'
         onClick={createNewPost}
       >
         Create Post
