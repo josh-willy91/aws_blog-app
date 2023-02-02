@@ -1,6 +1,10 @@
 # AWS Blog App
 This project was my first attempt at building an app using AWS Services.  It is a typical social media platform with profiles, posts, and comments.  I may build out more functionality in the future but for now it's a rough working app.  This was also my first time working with next.js, tailwind.css, graphQL, and AWS Services.  This was a great course I found on Udemy that helped make the process of learning these new tools much quicker.
 
+Domain
+https://dev.dghljx86o6xd5.amplifyapp.com/
+
+
 Udemy Course Walkthrough
 https://www.udemy.com/course/aws-appsync-amplify-with-react-graphql-course/learn/lecture/30804086#overview
 
